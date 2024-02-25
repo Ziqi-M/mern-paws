@@ -26,6 +26,7 @@
     "bare-os": "^2.2.0",
     "bare-path": "^2.1.0",
     "base64-js": "^1.5.1",
+    "bcryptjs": "^2.4.3",
     "binary-extensions": "^2.2.0",
     "bl": "^4.1.0",
     "brace-expansion": "^2.0.1",
