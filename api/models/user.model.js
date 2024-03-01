@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "https://static.vecteezy.com/system/resources/thumbnails/022/963/918/small/ai-generative-cute-cat-isolated-on-solid-background-photo.jpg",
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
