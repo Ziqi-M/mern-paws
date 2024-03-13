@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  backend:
+    build: ./api # 路径到后端的 Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: 'mongodb+srv://weicureco:CNXyUG9uHb2NsL@cluster0.npcr4v7.mongodb.net/mern-paws?retryWrites=true&w=majority&appName=Cluster0'
+
+  frontend:
+    build: ./client # 路径到前端的 Dockerfile
+    ports:
+      - "5173:80"
+

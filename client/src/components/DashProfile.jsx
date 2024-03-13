@@ -18,7 +18,6 @@ import {
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
-import { set } from "mongoose";
 import { Link } from "react-router-dom";
 
 export default function DashProfile() {
