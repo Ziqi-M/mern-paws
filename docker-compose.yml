@@ -1,14 +1,26 @@
 version: '3.8'
 services:
-  backend:
-    build: ./api # 路径到后端的 Dockerfile
-    ports:
-      - "3000:3000"
-    environment:
-      MONGO_URI: 'mongodb+srv://weicureco:CNXyUG9uHb2NsL@cluster0.npcr4v7.mongodb.net/mern-paws?retryWrites=true&w=majority&appName=Cluster0'
+    backend:
+        build:
+            context: ./api
+        ports:
+            - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+        env_file: ./.env
+        networks:
+            - backend
+            - frontend
+    frontend:
+        depends_on:
+            - backend
+        build:
+            context: ./client
+            args:
+                VITE_API_BASE_URL: ${VITE_API_BASE_URL}
+        ports:
+            - $REACT_LOCAL_PORT:$REACT_DOCKER_PORT
+        networks:
+            - frontend
 
-  frontend:
-    build: ./client # 路径到前端的 Dockerfile
-    ports:
-      - "5173:80"
-
+networks:
+    backend:
+    frontend:
