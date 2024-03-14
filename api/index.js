@@ -11,7 +11,7 @@ dotenv.config();
 
 mongoose
   .connect(
-    process.env.MONGO
+    process.env.MONGO_URI
   )
   .then(() => {
     console.log("MongoDB is connected");
@@ -24,11 +24,6 @@ const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
-
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
-
 
 app.use("/api/user", userRoutes);
 app.use('/api/auth', authRoutes);
@@ -44,3 +39,8 @@ app.use((err, req, res, next) => {
     message
    });
 });
+
+const PORT = process.env.NODE_DOCKER_PORT || 6868;
+    app.listen(PORT, () => {
+        console.log(`🚀 Server ready at ${PORT}`);
+    });
