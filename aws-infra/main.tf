@@ -31,6 +31,7 @@ resource "aws_instance" "app_server" {
                 echo "CLIENT_ORIGIN=${var.CLIENT_ORIGIN}" >> .env
                 echo "VITE_API_BASE_URL=${var.VITE_API_BASE_URL}" >> .env
                 echo "VITE_FIREBASE_API_KEY=${var.VITE_FIREBASE_API_KEY}" >> .env
+                echo "JWT_SECRET=${var.JWT_SECRET}" >> .env
                 echo "REACT_LOCAL_PORT=${var.REACT_LOCAL_PORT}" >> .env
                 echo "REACT_DOCKER_PORT=${var.REACT_DOCKER_PORT}" >> .env
                 sudo docker-compose build

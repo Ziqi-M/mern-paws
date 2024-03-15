@@ -79,3 +79,8 @@ variable "VITE_FIREBASE_API_KEY" {
   type        = string
   description = "VITE_FIREBASE_API_KEY"
 }
+
+variable "JWT_SECRET" {
+  type        = string
+  description = "JWT secret"
+}
